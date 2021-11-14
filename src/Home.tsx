@@ -167,46 +167,74 @@ const Home = (props: HomeProps) => {
 
   return (
     <main>
-      {wallet && (
-        <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
-      )}
+      <section className="crypto" id="cryptoInfo">
+        <div className="container">
+          <div className="wallet">
+            <h4 className="wallet__id">
+              {wallet && (
+                <>{shortenAddress(wallet.publicKey.toBase58() || "")}</>
+              )}
+            </h4>
+          </div>
+          <div className="crypto crypto--content">
+            <div className="banner banner--box">
+              <h2 className="banner__heading">
+                Crypto<span className="banner__span">Bros</span>
+              </h2>
 
-      {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-
-      {wallet && <p>Total Available: {itemsAvailable}</p>}
-
-      {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-      {wallet && <p>Remaining: {itemsRemaining}</p>}
-
-      <MintContainer>
-        {!wallet ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
-        ) : (
-          <MintButton
-            disabled={isSoldOut || isMinting || !isActive}
-            onClick={onMint}
-            variant="contained"
-          >
-            {isSoldOut ? (
-              "SOLD OUT"
-            ) : isActive ? (
-              isMinting ? (
-                <CircularProgress />
-              ) : (
-                "MINT"
-              )
-            ) : (
-              <Countdown
-                date={startDate}
-                onMount={({ completed }) => completed && setIsActive(true)}
-                onComplete={() => setIsActive(true)}
-                renderer={renderCounter}
+              <p className="text">
+                Total pieces:&nbsp; {wallet && <> {itemsAvailable}</>}
+              </p>
+              <p className="text">Mint price:&nbsp;0.5 solana</p>
+              <p className="text">
+                1 piece per transaction unlimited per wallet
+              </p>
+              <div className="banner__bind">
+                <MintContainer>
+                  {!wallet ? (
+                    <ConnectButton className="btn btn--connect">
+                      Connect Wallet
+                    </ConnectButton>
+                  ) : (
+                    <MintButton
+                      className="btn btn--connect"
+                      disabled={isSoldOut || isMinting || !isActive}
+                      onClick={onMint}
+                      variant="contained"
+                    >
+                      {isSoldOut ? (
+                        "SOLD OUT"
+                      ) : isActive ? (
+                        isMinting ? (
+                          <CircularProgress />
+                        ) : (
+                          "MINT"
+                        )
+                      ) : (
+                        <Countdown
+                          date={startDate}
+                          onMount={({ completed }) =>
+                            completed && setIsActive(true)
+                          }
+                          onComplete={() => setIsActive(true)}
+                          renderer={renderCounter}
+                        />
+                      )}
+                    </MintButton>
+                  )}
+                </MintContainer>
+              </div>
+            </div>
+            <div className="banner banner--box1 ">
+              <img
+                className="banner__img"
+                src="https://cryptobros.site/images/sliderbro1.svg"
+                alt="missing"
               />
-            )}
-          </MintButton>
-        )}
-      </MintContainer>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Snackbar
         open={alertState.open}
