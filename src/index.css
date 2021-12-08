@@ -371,7 +371,8 @@ h5 {
   }
   .btn {
     max-width: 244px;
-    font-size: 15px;
+    font-size: 15px !important;
+    padding: 16px 25px !important;
   }
   .banner--box1 {
     padding: 82px 0px 100px;
