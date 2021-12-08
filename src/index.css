@@ -12,7 +12,8 @@ body {
 /* common css */
 
 .container {
-  max-width: 100rem;
+  width: 100%;
+  max-width: 1920px;
   margin: 0 auto;
 }
 
