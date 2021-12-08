@@ -173,7 +173,7 @@ h5 {
 
 #cryptoInfo {
   background-color: #000;
-  overflow: hidden;
+  overflow: auto;
   height: 100vh;
 }
 
