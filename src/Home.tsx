@@ -185,7 +185,7 @@ const Home = (props: HomeProps) => {
               <p className="text">
                 Total pieces:&nbsp; {wallet && <> {itemsAvailable}</>}
               </p>
-              <p className="text">Mint price:&nbsp;{wallet && <> 0.39</>}</p>
+              <p className="text">Mint price:&nbsp;{wallet && <> 0.49</>}</p>
               <p className="text">
                 1 piece per transaction unlimited per wallet
               </p>
