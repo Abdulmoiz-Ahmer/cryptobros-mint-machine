@@ -176,56 +176,82 @@ const Home = (props: HomeProps) => {
               )}
             </h4>
           </div>
-          <div className="crypto crypto--content">
-            <div className="banner banner--box">
+          <div className="crypto crypto--content ">
+            <div className="banner banner--box col-md-8">
               <h2 className="banner__heading">
                 Crypto<span className="banner__span">Bros</span>
               </h2>
-
-              <p className="text">
-                Total pieces:&nbsp; {wallet && <> {itemsAvailable}</>}
-              </p>
-              <p className="text">Mint price:&nbsp;{wallet && <> 0.49</>}</p>
-              <p className="text">
-                1 piece per transaction unlimited per wallet
-              </p>
               <div className="banner__bind">
-                <MintContainer>
-                  {!wallet ? (
-                    <ConnectButton className="btn btn--connect">
-                      Connect Wallet
-                    </ConnectButton>
-                  ) : (
-                    <MintButton
-                      className="btn btn--connect"
-                      disabled={isSoldOut || isMinting || !isActive}
-                      onClick={onMint}
-                      variant="contained"
-                    >
-                      {isSoldOut ? (
-                        "SOLD OUT"
-                      ) : isActive ? (
-                        isMinting ? (
-                          <CircularProgress />
-                        ) : (
-                          "MINT"
-                        )
+                <div className="banner__content">
+                  <p className="text">
+                    Total pieces:&nbsp; {wallet && <> {itemsAvailable}</>}
+                  </p>
+                  <p className="text">
+                    Mint price:&nbsp;{wallet && <> 0.49</>}
+                  </p>
+                  <p className="text">
+                    1 piece per transaction unlimited per wallet
+                  </p>
+                  <div className="banner__bind">
+                    <MintContainer>
+                      {!wallet ? (
+                        <ConnectButton className="btn btn--connect">
+                          Connect Wallet
+                        </ConnectButton>
                       ) : (
-                        <Countdown
-                          date={startDate}
-                          onMount={({ completed }) =>
-                            completed && setIsActive(true)
-                          }
-                          onComplete={() => setIsActive(true)}
-                          renderer={renderCounter}
-                        />
+                        <MintButton
+                          className="btn btn--connect"
+                          disabled={isSoldOut || isMinting || !isActive}
+                          onClick={onMint}
+                          variant="contained"
+                        >
+                          {isSoldOut ? (
+                            "SOLD OUT"
+                          ) : isActive ? (
+                            isMinting ? (
+                              <CircularProgress />
+                            ) : (
+                              "MINT"
+                            )
+                          ) : (
+                            <Countdown
+                              date={startDate}
+                              onMount={({ completed }) =>
+                                completed && setIsActive(true)
+                              }
+                              onComplete={() => setIsActive(true)}
+                              renderer={renderCounter}
+                            />
+                          )}
+                        </MintButton>
                       )}
-                    </MintButton>
-                  )}
-                </MintContainer>
+                    </MintContainer>
+                  </div>
+                </div>
+                <div className="banner__content1 ">
+                  <h3 className="banner__info text">
+                    Apart from sick art, CryptoBros NFT grants you exclusive
+                    access to:
+                  </h3>
+
+                  <ul>
+                    <li>- first ever NFT Sniper Tool™️</li>
+                    <li>- Gem Hunter Reports</li>
+                    <li>- Smart Trader Signals</li>
+                    <li>
+                      - CryptoBros Portal (voting, whitelists, airdrops, tools)
+                    </li>
+                    <li>
+                      - CryptoBros Newsletter, Secret channel, Private Sale Pool
+                    </li>
+                    <li>- Launchpoad</li>
+                    <li>- Other Upcoming New Tools</li>
+                    <li>- Staking System</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div className="banner banner--box1 ">
+            <div className="banner banner--box1 col-md-4 ">
               <img
                 className="banner__img"
                 src="https://cryptobros.site/images/sliderbro1.svg"
