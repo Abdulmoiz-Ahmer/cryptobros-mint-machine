@@ -18,6 +18,7 @@ import {
   mintOneToken,
   shortenAddress,
 } from "./candy-machine";
+import broimg from "./images/bros-img.jpeg";
 
 const ConnectButton = styled(WalletDialogButton)``;
 
@@ -229,7 +230,7 @@ const Home = (props: HomeProps) => {
                   </div>
                 </div>
                 <div className="banner__content1 ">
-                  <h3 className="banner__info text">
+                  <h3 className="banner__info ">
                     Apart from sick art, CryptoBros NFT grants you exclusive
                     access to:
                   </h3>
@@ -252,11 +253,7 @@ const Home = (props: HomeProps) => {
               </div>
             </div>
             <div className="banner banner--box1 col-md-4 ">
-              <img
-                className="banner__img"
-                src="https://cryptobros.site/images/sliderbro1.svg"
-                alt="missing"
-              />
+              <img className="banner__img" src={broimg} alt="missing" />
             </div>
           </div>
         </div>
