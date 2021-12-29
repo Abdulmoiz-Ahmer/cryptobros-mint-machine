@@ -185,11 +185,9 @@ const Home = (props: HomeProps) => {
               <div className="banner__bind">
                 <div className="banner__content">
                   <p className="text">
-                    Total pieces:&nbsp; {wallet && <> {itemsAvailable}</>}
+                    Total piece:&nbsp; {wallet && <>399</>}
                   </p>
-                  <p className="text">
-                    Mint price:&nbsp;{wallet && <> 0.49</>}
-                  </p>
+                  <p className="text">Mint price:&nbsp;{wallet && <>0.49</>}</p>
                   <p className="text">
                     1 piece per transaction unlimited per wallet
                   </p>
@@ -199,6 +197,8 @@ const Home = (props: HomeProps) => {
                         <ConnectButton className="btn btn--connect">
                           Connect Wallet
                         </ConnectButton>
+                      ) : itemsRedeemed >= 100 ? (
+                        <span className="banner__span">We are "SOLD OUT"</span>
                       ) : (
                         <MintButton
                           className="btn btn--connect"
